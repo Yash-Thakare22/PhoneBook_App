@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Edit Contact</h1>
+
+<mat-form-field>
+    <input matInput #firstName placeholder="first Name">
+</mat-form-field>
+<mat-form-field>
+    <input matInput #lastName placeholder="last Name">
+</mat-form-field>
+<mat-form-field>
+    <input matInput #mobile placeholder="mobile">
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="dialogRef.close({
+    firstName: firstName.value,
+    lastName: lastName.value,
+    mobile: mobile.value
+  })">Save
+</button>
+<button mat-raised-button (click)="dialogRef.close()">Cancel</button>

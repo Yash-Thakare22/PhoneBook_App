@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let contact of contacts">
+      <h1 mat-line>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ contact.firstName }} {{ contact.lastName }}</h1>
+      <hr>
+      <h4 mat-line><mat-icon>call</mat-icon>{{ contact.mobile }}</h4>
+
+      <button mat-icon-button (click)="edit(contact)"  matTooltip="Edit Contact" matTooltip="Add Contact" matTooltipPosition="above">
+          <mat-icon [ngStyle]="{ 'color': 'green'}">edit</mat-icon>
+      </button> 
+      <button mat-icon-button (click)="contact.popular = !contact.popular" matTooltip="Popular Contact"
+        matTooltipPosition="above">
+        <mat-icon [ngStyle]="{ 'color': (contact.popular ? '#00FF00' : '#DCDCDC') }">add_alert</mat-icon>
+      </button>
+      <button mat-icon-button (click)="delete(contact)" matTooltip="Delete Contact" matTooltipPosition="above">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+    <button class="addBtn" mat-fab (click)="add()" matTooltip="Add Contact" matTooltipPosition="above">
+        <mat-icon>person_add</mat-icon>
+      </button>
+  </mat-nav-list>
+
+</mat-card>

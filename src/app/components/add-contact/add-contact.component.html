@@ -1,0 +1,39 @@
+<h3>Add Contact</h3>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <!-- User Name -->
+  <div class="form-group">
+    <label for="firstName">First name</label>
+    <input type="text" class="form-control" id="firstName" formControlName="firstName"
+      [ngClass]="{'is-invalid': formErrors.firstName}" (blur)="logValidationErrors()">
+    <div class="invalid-feedback" *ngIf="formErrors.firstName">
+      <span>{{formErrors.firstName}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last name</label>
+    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+  </div>
+
+  <!-- Mobile -->
+  <div class="form-group">
+    <label for="mobile">Mobile</label>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" id="mobile" maxlength="10" formControlName="mobile"
+        [ngClass]="{'is-invalid': formErrors.mobile}" (blur)="logValidationErrors()">
+      <div class="invalid-feedback" *ngIf="formErrors.mobile">
+        <span>{{formErrors.mobile}}</span>
+      </div>
+    </div>
+  </div>
+    <!-- whatsapp -->
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="whatsapp" formControlName="whatsapp">
+    <label class="form-check-label" for="whatsapp">WhatsApp No</label>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary mr-1" [disabled]="userForm.invalid"
+      (click)="dialogRef.close()">Submit</button>
+    <button type="button" class="btn btn-danger" (click)="setDataLoad()">Load Data</button>
+    <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+  </div>
+</form>
